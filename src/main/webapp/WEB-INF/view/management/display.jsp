@@ -4,6 +4,7 @@
   Time: 11:25
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -95,14 +96,14 @@
                             data-options="rownumbers:true, singleSelect:true,
                                 autoRowHeight:false, pagination:false">
                     <thead>
-                    <tr>
-                        <th field="id" hidden="true">Expense No</th>
-                        <th field="date" formatter = "ef.ajaxDateFormatter">Date</th>
-                        <th field="category" formatter = "ef.ajaxCategoryFormatter">Category</th>
-                        <th field="subCategory" formatter = "ef.ajaxSubCategoryFormatter">Sub-Category</th>
-                        <th field="amount" align="right" formatter="efd.currencyFormat" styler="efd.currencyStyle">Amount</th>
-                        <th field="description">Description</th>
-                    </tr>
+                        <tr>
+                            <th field="id" hidden="true">Expense No</th>
+                            <th field="date" formatter = "ef.ajaxDateFormatter">Date</th>
+                            <th field="category" formatter = "ef.ajaxCategoryFormatter">Category</th>
+                            <th field="subCategory" formatter = "ef.ajaxSubCategoryFormatter">Sub-Category</th>
+                            <th field="amount" align="right" formatter="efd.currencyFormat" styler="efd.currencyStyle">Amount</th>
+                            <th field="description">Description</th>
+                        </tr>
                     </thead>
                 </table>
             </div>
@@ -115,6 +116,12 @@
 <script type="text/javascript">
     window.onload = function() {
         ebe.click('searchExpense');
+
+        //To get current date daily expense
+        var triggerClickButton = "${initializeFlag}";
+        if( triggerClickButton == "true") {
+            $('#searchExpense').trigger('click');
+        }
     };
 </script>
 </body>

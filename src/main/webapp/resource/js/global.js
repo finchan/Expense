@@ -121,9 +121,12 @@ jQuery(document).ready(function () {
     $.extend($.fn.validatebox.defaults.rules, {
         exactDate: {
             validator: function (value, param) {
-                var date = $('#'+ param[0]).datebox('getValue');
-                var startDate = $('#'+ param[1]).datebox('getValue');
-                var endDate = $('#' + param[2]).datebox('getValue');
+                // var date = $('#'+ param[0]).datebox('getValue');
+                // var startDate = $('#'+ param[1]).datebox('getValue');
+                // var endDate = $('#' + param[2]).datebox('getValue');
+                var date = $('#'+ param[0]).val( );
+                var startDate = $('#'+ param[1]).val( );
+                var endDate = $('#' + param[2]).val( );
                 if (isNullEmpty(date)) {
                     if (isNullEmpty(startDate) || isNullEmpty(endDate)) {
                         return false;
@@ -145,9 +148,12 @@ jQuery(document).ready(function () {
         },
         startDate: {
             validator: function (value, param) {
-                var date = $('#'+ param[0]).datebox('getValue');
-                var startDate = $('#'+ param[1]).datebox('getValue');
-                var endDate = $('#' + param[2]).datebox('getValue');
+                // var date = $('#'+ param[0]).datebox('getValue');
+                // var startDate = $('#'+ param[1]).datebox('getValue');
+                // var endDate = $('#' + param[2]).datebox('getValue');
+                var date = $('#'+ param[0]).val( );
+                var startDate = $('#'+ param[1]).val( );
+                var endDate = $('#' + param[2]).val( );
                 if (isNullEmpty(startDate)){
                     if (!isNullEmpty(date) && !isNullEmpty(endDate)){
                         return false;
@@ -175,9 +181,13 @@ jQuery(document).ready(function () {
         },
         endDate: {
             validator: function (value, param) {
-                var date = $('#'+ param[0]).datebox('getValue');
-                var startDate = $('#'+ param[1]).datebox('getValue');
-                var endDate = $('#' + param[2]).datebox('getValue');
+                // var date = $('#'+ param[0]).datebox('getValue');
+                // var startDate = $('#'+ param[1]).datebox('getValue');
+                // var endDate = $('#' + param[2]).datebox('getValue');
+                var date = $('#'+ param[0]).val( );
+                var startDate = $('#'+ param[1]).val( );
+                var endDate = $('#' + param[2]).val( );
+                
                 if (isNullEmpty(endDate)){
                     if (!isNullEmpty(date) && !isNullEmpty(startDate)){
                         return false;
