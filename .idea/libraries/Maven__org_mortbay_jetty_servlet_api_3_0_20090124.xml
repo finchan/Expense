@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.mortbay.jetty:servlet-api:3.0.20090124">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/mortbay/jetty/servlet-api/3.0.20090124/servlet-api-3.0.20090124.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/mortbay/jetty/servlet-api/3.0.20090124/servlet-api-3.0.20090124-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/mortbay/jetty/servlet-api/3.0.20090124/servlet-api-3.0.20090124-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

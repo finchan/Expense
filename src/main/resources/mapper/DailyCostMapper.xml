@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xavier.expense.dao.IDailyCostDAO">
+
+    <resultMap id="resultMap" type="com.xavier.expense.model.DailyCost">
+        <id property="id" column="id" />
+        <result property="date" column="date" />
+        <result property="amount" column="amount" />
+        <result property="description" column="description" />
+        <association property="category" javaType="com.xavier.expense.model.Category">
+            <id property="id" column="cid" />
+            <result property="name" column="cname"/>
+            <result property="parentId" column="cparentid"/>
+        </association>
+        <association property="subCategory" javaType="com.xavier.expense.model.Category">
+            <id property="id" column="sid" />
+            <result property="name" column="sname"/>
+            <result property="parentId" column="sparentid"/>
+        </association>
+    </resultMap>
+
+    <select id="getMonthlyData" resultMap="resultMap" parameterType="com.xavier.expense.model.Category">
+         SELECT
+            d.id,
+            date,
+            c.id cid,
+            c.name cname,
+            c.parentid cparenrid,
+            s.id sid,
+            s.name sname,
+            s.parentid sparentid,
+            amount,
+            description
+        FROM
+            dailycost d
+                LEFT JOIN
+            category c ON d.category = c.id
+                LEFT JOIN
+            category s ON d.subcategory = s.id
+        WHERE 1=1
+        <if test="date != null and date != ''">
+            AND date = #{date}
+        </if>
+        <if test="startDate != null and startDate != ''">
+            AND date &gt;= #{startDate} AND date &lt;= #{endDate}
+        </if>
+        LIMIT 1, 10
+    </select>
+</mapper>

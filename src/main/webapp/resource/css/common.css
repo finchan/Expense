@@ -1,0 +1,17 @@
+html, body {
+    margin:0;
+    padding:0 auto;
+    width:100%;
+    height:100%;
+    font-family: Roboto, "Microsoft JhengHei";
+}
+
+.layout-height{
+    overflow:hidden;
+}
+
+.search-panel {
+    height:auto;
+    padding: 3px;
+    margin:0;
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xavier.expense.dao.ICategoryDAO">
+
+    <resultMap id="resultMap" type="com.xavier.expense.model.Category">
+        <id property="id" column="id" />
+        <result property="name" column="name"/>
+        <result property="parentId" column="parentid"/>
+    </resultMap>
+
+    <select id="getAllCategories" resultMap="resultMap" parameterType="com.xavier.expense.model.Category">
+        select id, name, parentid
+        from category
+        where parentid = 0
+        order by id
+    </select>
+
+    <select id="getAllSubCategories" resultMap="resultMap" parameterType="com.xavier.expense.model.Category">
+        select id, name, parentid
+        from category
+        where parentid != 0
+        order by id
+    </select>
+
+
+
+    <!--<select id="getCategoryList" resultMap="resultMap" parameterType="com.xavier.expense.model.Category">-->
+        <!--select id, name, parentid-->
+        <!--from category-->
+        <!--where parentid = 0-->
+        <!--<if test="id != null">-->
+            <!--and id = #{id}-->
+        <!--</if>-->
+        <!--order by id-->
+    <!--</select>-->
+
+    <!--<select id="getAllSubCategories" resultMap="resultMap" parameterType="com.xavier.expense.model.Category">-->
+        <!--select id, name, parentid-->
+        <!--from category-->
+        <!--where parentid = #{parentId}-->
+        <!--order by id, parentid-->
+    <!--</select>-->
+
+    <!--<select id="getSubCategoryList" resultMap="resultMap" parameterType="com.xavier.expense.model.Category">-->
+        <!--select id, name, parentid-->
+        <!--from category-->
+        <!--where parentid = 0-->
+        <!--<if test="id != null">-->
+            <!--and id = #{id}-->
+        <!--</if>-->
+        <!--<if test="parentid != null">-->
+            <!--and parentid = #{parentId}-->
+        <!--</if>-->
+        <!--order by id, parentid-->
+    <!--</select>-->
+</mapper>
